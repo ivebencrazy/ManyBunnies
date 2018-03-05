@@ -17,11 +17,11 @@
     "bunnies"
   ],
   "scripts": {
-    "build": "rollup ./source/index.js --o public/build/client.js --f iife",
+    "build": "rollup ./source/index.js --o docs/build/client.js --f iife",
     "start": "npm-run-all -p watch server",
     "server": "nodemon ./server.js",
     "test": "jest",
-    "watch": "rollup ./source/index.js --o public/build/client.js --f iife --watch"
+    "watch": "rollup ./source/index.js --o docs/build/client.js --f iife --watch"
   },
   "dependencies": {
     "lodash": "^4.17.5",

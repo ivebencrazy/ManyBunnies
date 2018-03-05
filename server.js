@@ -15,7 +15,7 @@ var serverCallback = function(incomingMessage, response) {
   // Get the location of our file
   var currDirectory = process.cwd();
   var requestedPath = url.parse(incomingMessage.url).pathname;
-  var filePath = path.join(currDirectory, "public", requestedPath);
+  var filePath = path.join(currDirectory, "docs", requestedPath);
 
   // Attempt to open our file
   fs.open(filePath, "r", function(error) {
