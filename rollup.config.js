@@ -4,14 +4,11 @@ import commonjs from "rollup-plugin-commonjs";
 export default {
   input: "./source/index.js",
   output: {
-    file: "./docs/build/client.js"
+    file: "./docs/build/client.js",
+    globals: [ "PIXI" ],
   },
   plugins: [
-    resolveNode({
-      jsnext: true
-    }),
-    commonjs({
-      include: "node_modules/**"
-    })
+    resolveNode(),
+    commonjs()
   ],
 }
