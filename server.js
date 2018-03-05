@@ -1,8 +1,8 @@
 // Declare our dependencies.
-var http = require("http");
-var url = require("url");
-var path = require("path");
-var fs = require("fs");
+const fs = require("fs");
+const http = require("http");
+const path = require("path");
+const url = require("url");
 
 var CONTENT_TYPES = {
   css: "text/css",
@@ -49,7 +49,7 @@ var serverCallback = function(incomingMessage, response) {
       };
 
       var matchAfterLastDot = /(?!\.)[^.]*$/
-      var fileExtension = filePath.match(matchAfterLastDot);
+      var fileExtension = filePath.match(matchAfterLastDot)[0];
 
       if (CONTENT_TYPES[fileExtension]) {
         responseOptions["Content-Type"] = CONTENT_TYPES[fileExtension];
@@ -73,4 +73,4 @@ var server = http.createServer(serverCallback);
 server.listen(port);
 
 // Log out to our console, so we know where our server is running!
-console.log("Server running at: http://localhost:" + port);
+console.log("Server running at: localhost:" + port);

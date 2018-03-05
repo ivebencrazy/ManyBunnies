@@ -17,17 +17,17 @@
     "bunnies"
   ],
   "scripts": {
-    "build": "rollup ./source/index.js --o docs/build/client.js --f iife",
+    "build": "rollup -c ./rollup.config.js --f iife",
     "start": "npm-run-all -p watch server",
     "server": "nodemon ./server.js",
     "test": "jest",
-    "watch": "rollup ./source/index.js --o docs/build/client.js --f iife --watch"
+    "watch": "rollup -c ./rollup.config.js --f iife --watch"
   },
   "dependencies": {
-    "lodash": "^4.17.5",
+    "lodash-es": "^4.17.5",
     "nodemon": "^1.17.1",
     "pixi.js": "^4.7.0",
-    "rx": "^4.1.0"
+    "rxjs": "^5.5.6"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
@@ -36,7 +36,9 @@
     "husky": "^0.15.0-rc.8",
     "jest": "^22.4.2",
     "npm-run-all": "^4.1.2",
-    "rollup": "^0.56.3"
+    "rollup": "^0.56.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3"
   },
   "babel": {
     "presets": [
