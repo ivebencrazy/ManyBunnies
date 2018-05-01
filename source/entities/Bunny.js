@@ -1,4 +1,4 @@
-import { assign, random } from "lodash-es";
+import { random } from "../utilities/index.js";
 
 
 /**
@@ -9,7 +9,7 @@ import { assign, random } from "lodash-es";
  * @property {Number} rotationSpeed The speed of rotation of a bunny in degrees/frame.
  */
 export function Bunny() {
-  return assign(PIXI.Sprite.fromImage("assets/bunny.png"), {
+  return Object.assign(PIXI.Sprite.fromImage("assets/bunny.png"), {
     anchor: { x: null, y: null },
     mass: 0,
     rotation: null,

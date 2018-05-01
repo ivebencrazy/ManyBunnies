@@ -1,7 +1,6 @@
-import { assign, debounce, random } from "lodash-es";
-import { BaseScene } from "./BaseScene";
-import { Bunny } from "../entities/Bunny";
-import { addListeners, distance } from "../utilities";
+import { BaseScene } from "./BaseScene.js";
+import { Bunny } from "../entities/Bunny.js";
+import { addListeners, distance, random } from "../utilities/index.js";
 
 
 /**
@@ -18,7 +17,7 @@ import { addListeners, distance } from "../utilities";
  * @property {Boolean} iteractive    Tells Pixi.js to allow interaction on this scene.
  */
 
-export const BunnyScene = assign(BaseScene, {
+export const BunnyScene = Object.assign(BaseScene, {
   models: [],
   gravity: 10,
   mousePosition: { x: null, y: null },
@@ -41,9 +40,9 @@ export const BunnyScene = assign(BaseScene, {
    * Listens to the mouse and sets mousePosition and mouseMoving.
    */
   listenForMouseMovement() {
+    const mouseStop = debounce(() => this.mouseMoving = false, 1000);
 
     addListeners(this, [ "mousemove", "mouseover", "mouseout" ]);
-
     // For as long as the mouse is over the screen, listen for mousemove events.
     this.mouseovers
       .concatMap(() => {
@@ -60,7 +59,7 @@ export const BunnyScene = assign(BaseScene, {
         this.mousePosition.y = pos.data.global.y;
 
         // After 1 second of mouse silence, set mouseMoving back to false.
-        (debounce( () => this.mouseMoving = false, 1000))();
+        mouseStop.call(this);
       });
   },
 

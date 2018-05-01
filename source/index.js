@@ -1,5 +1,5 @@
-import { ScenesManager } from "./ScenesManager";
-import { BunnyScene } from "./scenes";
+import { ScenesManager } from "./ScenesManager.js";
+import { BunnyScene } from "./scenes/index.js";
 
 
 /**

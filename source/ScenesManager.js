@@ -1,4 +1,4 @@
-import { BaseScene } from "./scenes";
+import { BaseScene } from "./scenes/index.js";
 
 
 /**

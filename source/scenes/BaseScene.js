@@ -1,4 +1,4 @@
-import { assign, identity } from "lodash-es";
+const identity = item => item;
 
 
 /**
@@ -10,7 +10,7 @@ import { assign, identity } from "lodash-es";
  * @property {Boolean}  paused   Keeps track of whether the manager should run update()
  * @property {Function} updateCB The function to run with requestAnimationFrame.
  */
-export const BaseScene = assign(new PIXI.Container(), {
+export const BaseScene = Object.assign(new PIXI.Container(), {
   paused: false,
   state: {},
   updateCB: identity,

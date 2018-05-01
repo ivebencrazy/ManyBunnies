@@ -1,6 +1,3 @@
-import { Observable } from "rxjs";
-
-
 /**
  * Attaches reactive events to dom elements.
  */
@@ -30,4 +27,8 @@ export function distance(p1, p2) {
  */
 export function getWeight(mass, gravity = 9.8) {
   return mass * gravity;
+}
+
+export function random(lower, upper) {
+  return Math.floor(Math.random() * upper) + lower;
 }
